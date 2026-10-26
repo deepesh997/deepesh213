@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    {
+      "name": "ralph",
+      "path": "./plugins/ralph"
+    },
+    {
+      "name": "get-shit-done",
+      "path": "./plugins/get-shit-done"
+    },
+    {
+      "name": "code-rabbit",
+      "path": "./plugins/code-rabbit"
+    }
+  ]
+}

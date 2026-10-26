@@ -1,0 +1,5 @@
+{
+  "name": "code-rabbit",
+  "description": "AI-powered automated code review and quality gate. Inspects code for security vulnerabilities, logic defects, accessibility (a11y), performance bottlenecks, and architectural best practices.",
+  "version": "1.0.0"
+}

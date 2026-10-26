@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepesh Kumar Jain | 3D Portfolio - AI Automation Engineer & SAP Joule Studio Specialist</title>
+  <meta name="description" content="Official 3D Portfolio of Deepesh Kumar Jain: AI Automation Engineer specializing in SAP Joule Studio, n8n multi-agent workflows, and Microsoft Power Platform.">
+  <meta name="keywords" content="Deepesh Kumar Jain, AI Automation Engineer, SAP Joule Studio, n8n AI Agents, Power Automate, ERP Process Automation, Three.js 3D Portfolio">
+  <meta name="author" content="Deepesh Kumar Jain">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/deepesh.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Main Design System CSS -->
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <!-- Background 3D WebGL Canvas -->
+  <div id="webgl-canvas-container">
+    <canvas id="three-canvas"></canvas>
+  </div>
+
+  <!-- HUD Quick Controls -->
+  <div class="hud-controls">
+    <button class="hud-btn" id="hud-toggle-3d" title="Toggle interactive 3D orbit inspection">
+      <i class="fas fa-cube"></i> Inspect 3D
+    </button>
+    <button class="hud-btn" id="hud-reset-cam" title="Reset camera to center view">
+      <i class="fas fa-crosshairs"></i> Reset View
+    </button>
+  </div>
+
+  <!-- Global Toast Notification Component -->
+  <div id="global-toast" class="toast-notice">
+    <i class="fas fa-terminal"></i> <span>System Ready</span>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <a href="#hero" class="nav-brand">
+      <div class="brand-avatar">
+        <img src="assets/deepesh.jpg" alt="Deepesh Kumar Jain">
+        <span class="brand-status-dot"></span>
+      </div>
+      <div class="brand-info">
+        <span class="brand-name">Deepesh Kumar Jain</span>
+        <span class="brand-tagline">AI Automation Engineer • Tayana Solutions</span>
+      </div>
+    </a>
+
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="#hero" class="nav-link active">Home</a></li>
+      <li><a href="#architecture" class="nav-link">Architecture</a></li>
+      <li><a href="#simulator" class="nav-link">Live Studio</a></li>
+      <li><a href="#agents" class="nav-link">AI Agents</a></li>
+      <li><a href="#joule-catalog" class="nav-link">Joule 63 Matrix</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#certifications" class="nav-link">Certs</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="sound-toggle-btn" title="Toggle audio feedback" aria-label="Toggle Sound">
+        <i class="fas fa-volume-mute"></i>
+      </button>
+      <button class="icon-btn" id="toggle-3d-mode" title="Toggle free 3D inspection" aria-label="3D Mode">
+        <i class="fas fa-cube"></i>
+      </button>
+      <a href="#contact" class="btn-hire">
+        <i class="fas fa-paper-plane"></i> Contact Deepesh
+      </a>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Foreground Main Content -->
+  <div class="content-wrapper">
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-intro">
+          <div class="hero-badge-wrap">
+            <span class="pulse-indicator"></span>
+            <span class="hero-badge-text">Available for Enterprise AI Automation & Advisory</span>
+          </div>
+
+          <h1 class="hero-title">
+            Architecting <span class="text-gradient-cyan">Autonomous AI Agents</span> & ERP Pipelines
+          </h1>
+
+          <div class="hero-name-badge">
+            <span class="hero-name-label">Deepesh Kumar Jain</span>
+            <span class="hero-role-divider">•</span>
+            <span class="hero-role-text">AI Automation Engineer @ Tayana Solutions</span>
+          </div>
+
+          <div class="hero-subtitle">
+            <span style="color: var(--accent-cyan);">&gt;</span>
+            <span id="typing-headline">AI Automation Engineer</span>
+            <span class="typing-cursor"></span>
+          </div>
+
+          <p class="hero-description">
+            I engineer production-grade AI agents and autonomous business workflows that eliminate repetitive manual labor. 
+            Backed by <b>3.5+ years of enterprise ERP analysis</b>, I bridge business rules with <b>SAP Joule Studio (63 mapped agents)</b>, 
+            <b>n8n multi-agent clusters</b>, and <b>Microsoft Power Platform</b> with end-to-end traceability and human-in-the-loop governance.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#simulator" class="btn-primary">
+              <i class="fas fa-play"></i> Test Live AI Studio
+            </a>
+            <a href="#joule-catalog" class="btn-secondary">
+              <i class="fas fa-cube"></i> SAP Joule 63 Matrix
+            </a>
+            <a href="assets/Deepesh_Kumar_Jain_Resume.pdf" target="_blank" download="Deepesh_Kumar_Jain_Resume.pdf" class="btn-secondary btn-cv">
+              <i class="fas fa-file-pdf"></i> Download Resume
+            </a>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric-card">
+              <span class="metric-val text-gradient-joule">63</span>
+              <span class="metric-label">SAP Joule Agents Mapped</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-val text-gradient-cyan">7+</span>
+              <span class="metric-label">Production n8n Agents</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-val text-gradient-purple">3.5+</span>
+              <span class="metric-label">Years ERP & BA Experience</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-val" style="color: var(--accent-emerald);">100%</span>
+              <span class="metric-label">Process Auditability</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Executive Profile Showcase Card -->
+        <div class="hero-visual-card">
+          <div class="holo-card-inner" id="hero-holo-card">
+            
+            <div class="holo-photo-container">
+              <img src="assets/deepesh.jpg" alt="Deepesh Kumar Jain - AI Automation Engineer">
+              <div class="holo-overlay-badge">
+                <i class="fas fa-check-circle"></i> Verified AI Engineer
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.35rem;">
+              <div>
+                <h3 style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.15rem;">
+                  Deepesh Kumar Jain
+                </h3>
+                <p style="font-size: 0.8rem; color: #94a3b8; font-family: var(--font-mono);">
+                  AI Automation Engineer @ Tayana Solutions
+                </p>
+              </div>
+              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-emerald); display: flex; align-items: center; gap: 0.35rem; background: rgba(16, 185, 129, 0.1); padding: 0.2rem 0.55rem; border-radius: var(--radius-full);">
+                <i class="fas fa-circle" style="font-size: 0.45rem;"></i> Active Now
+              </span>
+            </div>
+
+            <div style="font-size: 0.75rem; color: #64748b; font-family: var(--font-mono); margin-bottom: 0.85rem;">
+              <i class="fas fa-map-marker-alt" style="color: var(--accent-joule);"></i> Greater Hyderabad Area, India • UTC+5:30
+            </div>
+
+            <div class="holo-badge-grid">
+              <div class="tech-chip">
+                <span style="width: 18px; height: 18px; display: inline-flex;">
+                  <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#0F172A"/><path d="M10 28H14.5L17.5 12H13L10 28Z" fill="#0A6ED1"/><path d="M20 9L27 16L20 23L13 16L20 9Z" fill="#F59E0B"/><circle cx="20" cy="16" r="3.5" fill="#FFFFFF"/></svg>
+                </span>
+                <span>SAP Joule Studio (63)</span>
+              </div>
+              <div class="tech-chip">
+                <span style="width: 18px; height: 18px; display: inline-flex;">
+                  <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#FF6D5A"/><circle cx="20" cy="20" r="3.5" fill="white"/><circle cx="12" cy="20" r="2.5" fill="#FFE2DD"/><circle cx="28" cy="20" r="2.5" fill="#FFE2DD"/></svg>
+                </span>
+                <span>n8n Multi-Agent</span>
+              </div>
+              <div class="tech-chip">
+                <span style="width: 18px; height: 18px; display: inline-flex;">
+                  <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#0066B8"/><path d="M11 26.5L18.5 13.5H23L15.5 26.5H11Z" fill="#50E6FF"/></svg>
+                </span>
+                <span>Power Automate</span>
+              </div>
+              <div class="tech-chip">
+                <span style="width: 18px; height: 18px; display: inline-flex;">
+                  <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#10A37F"/><circle cx="20" cy="20" r="4" fill="white"/></svg>
+                </span>
+                <span>OpenAI GPT-4o</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ENTERPRISE LOGOS TICKER ==================== -->
+    <section class="brand-ticker-section">
+      <div class="ticker-heading">Certified Tech Stack & Enterprise Automation Ecosystem</div>
+      <div class="ticker-track">
+        <div class="ticker-item">
+          <div class="ticker-logo-box">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#FF6D5A"/><circle cx="20" cy="20" r="3.5" fill="white"/><circle cx="12" cy="20" r="2.5" fill="#FFE2DD"/><circle cx="28" cy="20" r="2.5" fill="#FFE2DD"/></svg>
+          </div>
+          <span class="ticker-name">n8n Workflow Automation</span>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-logo-box">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#0066B8"/><path d="M11 26.5L18.5 13.5H23L15.5 26.5H11Z" fill="#50E6FF"/><path d="M17.5 26.5L25 13.5H29.5L22 26.5H17.5Z" fill="#00A3EE"/></svg>
+          </div>
+          <span class="ticker-name">Microsoft Power Automate</span>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-logo-box">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#1E1E2E"/><path d="M13 18C13 13.5 16.5 10 21 10C24.5 10 27.5 12.5 28.5 16H23.5C21 16 19 18 19 20.5V25H16C14.3 25 13 23.7 13 22V18Z" fill="#8661C5"/><circle cx="26" cy="14" r="2.5" fill="#FFC83B"/></svg>
+          </div>
+          <span class="ticker-name">Microsoft Copilot Studio</span>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-logo-box">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#0F172A"/><path d="M10 28H14.5L17.5 12H13L10 28Z" fill="#0A6ED1"/><path d="M20 9L27 16L20 23L13 16L20 9Z" fill="#F59E0B"/><circle cx="20" cy="16" r="3.5" fill="#FFFFFF"/></svg>
+          </div>
+          <span class="ticker-name">SAP Joule Studio</span>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-logo-box">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#0A6ED1"/><text x="20" y="25" font-family="'Outfit', sans-serif" font-size="14" font-weight="900" fill="#FFFFFF" text-anchor="middle">SAP</text></svg>
+          </div>
+          <span class="ticker-name">SAP S/4HANA ERP</span>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-logo-box">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#10A37F"/><circle cx="20" cy="20" r="4" fill="white"/></svg>
+          </div>
+          <span class="ticker-name">OpenAI GPT-4o</span>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-logo-box">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#D97706"/><path d="M14 26L20 12L26 26H22.5L20 19L17.5 26H14Z" fill="#FFFFFF"/></svg>
+          </div>
+          <span class="ticker-name">Anthropic Claude</span>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-logo-box">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#18BFFF"/><path d="M20 10L11 15V24L20 19V10Z" fill="#F8FAFC"/><path d="M20 21L11 26L20 31L29 26L20 21Z" fill="#F59E0B"/></svg>
+          </div>
+          <span class="ticker-name">Airtable</span>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-logo-box">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#1E293B"/><circle cx="20" cy="20" r="5" fill="#00E676"/></svg>
+          </div>
+          <span class="ticker-name">Apify Cloud Actors</span>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-logo-box">
+            <img src="assets/tayana-logo.png" alt="Tayana Solutions Logo">
+          </div>
+          <span class="ticker-name">Tayana Solutions</span>
+        </div>
+
+        <!-- Duplicated items for continuous loop -->
+        <div class="ticker-item">
+          <div class="ticker-logo-box">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#FF6D5A"/><circle cx="20" cy="20" r="3.5" fill="white"/></svg>
+          </div>
+          <span class="ticker-name">n8n Workflow Automation</span>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-logo-box">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#0066B8"/><path d="M11 26.5L18.5 13.5H23L15.5 26.5H11Z" fill="#50E6FF"/></svg>
+          </div>
+          <span class="ticker-name">Microsoft Power Automate</span>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-logo-box">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#0F172A"/><path d="M20 9L27 16L20 23L13 16L20 9Z" fill="#F59E0B"/></svg>
+          </div>
+          <span class="ticker-name">SAP Joule Studio</span>
+        </div>
+        <div class="ticker-item">
+          <div class="ticker-logo-box">
+            <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#10A37F"/><circle cx="20" cy="20" r="4" fill="white"/></svg>
+          </div>
+          <span class="ticker-name">OpenAI GPT-4o</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION: 3D AGENT ARCHITECTURE ==================== -->
+    <section class="section" id="architecture">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Autonomous Systems Blueprint</span>
+          <h2 class="section-title">End-to-End <span class="text-gradient-cyan">Agent Architecture</span></h2>
+          <p class="section-subtitle">
+            How Deepesh engineers autonomous pipelines: from real-world business trigger events down to ERP transactions and verified audit trails.
+          </p>
+        </div>
+
+        <div class="arch-card">
+          <div class="arch-header">
+            <div>
+              <h3 style="font-family: var(--font-heading); font-size: 1.4rem; color: #fff;">
+                The Autonomous Business Workflow Pipeline
+              </h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">
+                Engineered with n8n, SAP Joule Studio, REST APIs, and Human-in-the-Loop Safeguards
+              </p>
+            </div>
+            <span class="arch-badge">Enterprise Standard 2026</span>
+          </div>
+
+          <div class="arch-flow-diagram">
+            <div class="flow-step">
+              <span class="flow-step-num">01</span>
+              <div class="flow-icon"><i class="fas fa-satellite-dish"></i></div>
+              <h4 class="flow-title">Trigger & Ingestion</h4>
+              <p class="flow-desc">Webhooks, Apify scrapers, SAP Event Mesh, ERP transactional state changes</p>
+            </div>
+
+            <div class="flow-step">
+              <span class="flow-step-num">02</span>
+              <div class="flow-icon"><i class="fas fa-filter"></i></div>
+              <h4 class="flow-title">Data Normalization</h4>
+              <p class="flow-desc">JSON schema validation, deduplication, business rules validation</p>
+            </div>
+
+            <div class="flow-step active">
+              <span class="flow-step-num">03</span>
+              <div class="flow-icon"><i class="fas fa-brain"></i></div>
+              <h4 class="flow-title">Cognitive AI Agent</h4>
+              <p class="flow-desc">GPT-4 / Claude reasoning, vector memory RAG, requirement scoring</p>
+            </div>
+
+            <div class="flow-step">
+              <span class="flow-step-num">04</span>
+              <div class="flow-icon"><i class="fas fa-user-check"></i></div>
+              <h4 class="flow-title">Human-in-the-Loop</h4>
+              <p class="flow-desc">Teams / Slack / WhatsApp adaptive card review with 1-click approvals</p>
+            </div>
+
+            <div class="flow-step">
+              <span class="flow-step-num">05</span>
+              <div class="flow-icon"><i class="fas fa-database"></i></div>
+              <h4 class="flow-title">ERP Commit & Alert</h4>
+              <p class="flow-desc">SAP S/4HANA BAPI commit, Airtable/Sheets record, real-time dispatch</p>
+            </div>
+          </div>
+
+          <div class="arch-details-grid">
+            <div class="arch-detail-box">
+              <h4 class="detail-box-title"><i class="fas fa-shield-halved"></i> Auditability & BRD Compliance</h4>
+              <p class="detail-box-desc">
+                Rooted in 3+ years as a Functional Business Analyst. Every agent workflow maintains complete JSON state logs, audit trails, and strict BRD specifications.
+              </p>
+            </div>
+            <div class="arch-detail-box">
+              <h4 class="detail-box-title"><i class="fas fa-bolt"></i> Low-Latency Self-Hosted n8n</h4>
+              <p class="detail-box-desc">
+                High-performance self-hosted instance executing sub-second triggers without third-party vendor lock-in or payload truncation.
+              </p>
+            </div>
+            <div class="arch-detail-box">
+              <h4 class="detail-box-title"><i class="fas fa-cube"></i> SAP Joule Studio Integration</h4>
+              <p class="detail-box-desc">
+                Direct integration with SAP Discovery Center AI Agents across S/4HANA, SuccessFactors, and Ariba for enterprise-grade compliance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION: AUTHENTIC N8N & POWER AUTOMATE SIMULATOR ==================== -->
+    <section class="section" id="simulator">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Interactive Automation Studio</span>
+          <h2 class="section-title">Live <span class="text-gradient-cyan">Workflow Canvas</span></h2>
+          <p class="section-subtitle">
+            Authentic visual execution engine modeled directly after <b>n8n</b> (node-cable graph) and <b>Microsoft Power Automate</b> (cloud flow designer).
+          </p>
+        </div>
+
+        <div class="simulator-wrapper" id="simulator-wrapper">
+          <!-- Authentic n8n Header Bar -->
+          <div class="n8n-top-controls">
+            <div style="display: flex; align-items: center; gap: 0.85rem; flex-wrap: wrap;">
+              <div class="sim-window-controls">
+                <span class="sim-dot red"></span>
+                <span class="sim-dot yellow"></span>
+                <span class="sim-dot green"></span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span style="width: 22px; height: 22px; display: inline-flex;">
+                  <svg viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#FF6D5A"/><circle cx="20" cy="20" r="3.5" fill="white"/><circle cx="12" cy="20" r="2.5" fill="#FFE2DD"/><circle cx="28" cy="20" r="2.5" fill="#FFE2DD"/></svg>
+                </span>
+                <select id="n8n-workflow-select" class="n8n-workflow-select" aria-label="Select Production Workflow to Test">
+                  <option value="onboarding" selected>01. Capstone: Enterprise Employee Onboarding (13 Nodes)</option>
+                  <option value="rfp_scout">02. Autonomous Opportunity Scout & Proposal Drafter (7 Nodes)</option>
+                  <option value="joule_po">03. SAP Joule Studio S/4HANA PO Anomaly & Approval (7 Nodes)</option>
+                  <option value="sales_assistant">04. AI Sales Assistant & Calendar Booking Bot (6 Nodes)</option>
+                  <option value="support_sentiment">05. Customer Support Sentiment Triage & Recovery (7 Nodes)</option>
+                  <option value="brd_generator">06. Automated Technical Proposal & BRD/SRS Spec (6 Nodes)</option>
+                  <option value="timesheet_audit">07. Enterprise Timesheet & Payroll Compliance Audit (6 Nodes)</option>
+                  <option value="erp_rag">08. ERP Multi-Module Compliance & Tax RAG Agent (6 Nodes)</option>
+                  <option value="pa_invoice">09. Microsoft Power Automate Invoice OCR & ERP Flow (6 Nodes)</option>
+                  <option value="arbitrage_bot">10. Financial Currency & Commodity Arbitrage Bot (6 Nodes)</option>
+                </select>
+              </div>
+              <span id="n8n-header-badge" style="background: rgba(255, 109, 90, 0.12); color: #ff6d5a; font-family: var(--font-mono); font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: var(--radius-full); font-weight: 600;">
+                13 Nodes | Active
+              </span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <button class="btn-theme-toggle" id="n8n-theme-toggle" title="Toggle Canvas Dark/Light Mode" style="background: rgba(0,0,0,0.05); border: 1px solid #cbd5e1; border-radius: 8px; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #475569;">
+                <i class="fas fa-moon"></i>
+              </button>
+              <button class="sim-btn-trigger" id="sim-trigger-btn" style="margin: 0; padding: 0.55rem 1.25rem;">
+                <i class="fas fa-play"></i> Test Workflow
+              </button>
+            </div>
+          </div>
+
+          <!-- Canvas Hint Bar -->
+          <div style="padding: 0.6rem 1.5rem; background: rgba(0,0,0,0.02); border-bottom: 1px solid #e2e8f0; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #64748b; flex-wrap: wrap; gap: 0.5rem;">
+            <div>
+              <span style="color: #ff6d5a; font-weight: 700;">Live n8n Studio Graph:</span> Use the dropdown above to switch between all 10 production workflows. Click any node to inspect queries, or click Test Workflow.
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 0.72rem;">
+              Active Instance: <span style="color: #3b82f6;">Self-Hosted n8n + Joule v2.6</span>
+            </div>
+          </div>
+
+          <!-- 1. Authentic n8n Visual Canvas with connecting wires -->
+          <div class="n8n-studio-wrapper" id="n8n-canvas-wrapper">
+            <!-- Floating Right Toolbar matching user's n8n screenshot -->
+            <div class="n8n-floating-dock">
+              <button class="n8n-dock-btn" title="Add Node"><i class="fas fa-plus"></i></button>
+              <button class="n8n-dock-btn" id="n8n-dock-zoom" title="Zoom In"><i class="fas fa-search-plus"></i></button>
+              <button class="n8n-dock-btn" id="n8n-dock-reset" title="Reset View"><i class="fas fa-expand"></i></button>
+              <button class="n8n-dock-btn" title="Sticky Note"><i class="far fa-sticky-note"></i></button>
+              <button class="n8n-dock-btn" title="Sub-Workflows"><i class="fas fa-layer-group"></i></button>
+              <button class="n8n-dock-btn" title="n8n AI Assistant" style="color: #a855f7;"><i class="fas fa-wand-magic-sparkles"></i></button>
+              <button class="n8n-dock-btn n8n-dock-exec-btn" id="n8n-dock-execute-btn" title="Execute Workflow">
+                <i class="fas fa-play"></i>
+              </button>
+            </div>
+
+            <!-- Authentic n8n Floating Bottom Execution Pill Bar -->
+            <div class="n8n-bottom-floating-bar">
+              <button class="n8n-canvas-execute-pill" id="n8n-canvas-execute-btn">
+                <i class="fas fa-play"></i>
+                <span>Execute workflow</span>
+              </button>
+            </div>
+
+            <!-- Stage where nodes and SVG wires render -->
+            <div class="n8n-canvas-stage" id="n8n-canvas-stage">
+              <svg class="n8n-wires-svg" id="n8n-wires-svg"></svg>
+            </div>
+          </div>
+
+          <!-- Live Telemetry Terminal Below Canvas -->
+          <div class="sim-console-pane" style="height: 180px; margin: 0; border-top: 1px solid #e2e8f0; border-radius: 0 0 12px 12px;">
+            <div class="console-header">
+              <span><i class="fas fa-terminal"></i> WORKFLOW EXECUTION TELEMETRY & AUDIT STREAM</span>
+              <span id="telemetry-status" style="color: #10b981;">STATUS: READY</span>
+            </div>
+            <div class="console-logs" id="sim-console-output"></div>
+          </div>
+        </div>
+
+        <!-- ==================== 10 PRODUCTION WORKFLOWS SHOWCASE GALLERY ==================== -->
+        <div class="workflows-showcase-section">
+          <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <span class="section-tag" style="margin-bottom: 0.5rem;">Production Automation Suite</span>
+              <h3 style="font-family: var(--font-heading); font-size: 1.85rem; color: #fff; font-weight: 800;">
+                10 Production <span class="text-gradient-cyan">Workflows Gallery</span>
+              </h3>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">
+                Click any workflow card below to dynamically load its live node-wire graph and execute its simulation above.
+              </p>
+            </div>
+            <span style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-emerald);">
+              ● All 10 Architectures Production-Verified
+            </span>
+          </div>
+
+          <div class="workflows-grid">
+            <!-- 01. Capstone Onboarding -->
+            <div class="wf-showcase-card">
+              <div class="wf-card-top">
+                <span class="agent-type-badge badge-flagship">Flagship Capstone</span>
+                <span class="wf-node-count-badge">13 Nodes</span>
+              </div>
+              <h4 class="wf-card-title">Enterprise Employee Onboarding & Multi-Worker Provisioning</h4>
+              <p class="wf-card-desc">
+                Postgres duplicate email check, profile and task checklist creation, 3-way department branch, IT/HR provisioning sub-workflows, Merge append, Slack review, and final approval commit.
+              </p>
+              <div class="wf-card-stack">
+                <span class="wf-stack-pill">n8n</span>
+                <span class="wf-stack-pill">PostgreSQL</span>
+                <span class="wf-stack-pill">Slack</span>
+                <span class="wf-stack-pill">Sub-Workflows</span>
+              </div>
+              <button class="btn-load-workflow" onclick="loadWorkflowIntoStudio('onboarding')">
+                <i class="fas fa-play-circle"></i> Load into Studio Canvas
+              </button>
+            </div>
+
+            <!-- 02. RFP Scout -->
+            <div class="wf-showcase-card">
+              <div class="wf-card-top">
+                <span class="agent-type-badge badge-n8n">GenAI & Scraping</span>
+                <span class="wf-node-count-badge">7 Nodes</span>
+              </div>
+              <h4 class="wf-card-title">Autonomous Opportunity Scout & Proposal Drafter</h4>
+              <p class="wf-card-desc">
+                Apify marketplace crawler pulls active RFPs, filters by verified client budget (>$2k), uses GPT-4o to score skill match, commits to Airtable, and pushes instant mobile alerts.
+              </p>
+              <div class="wf-card-stack">
+                <span class="wf-stack-pill">Apify</span>
+                <span class="wf-stack-pill">OpenAI GPT-4o</span>
+                <span class="wf-stack-pill">Airtable</span>
+                <span class="wf-stack-pill">Telegram</span>
+              </div>
+              <button class="btn-load-workflow" onclick="loadWorkflowIntoStudio('rfp_scout')">
+                <i class="fas fa-play-circle"></i> Load into Studio Canvas
+              </button>
+            </div>
+
+            <!-- 03. Joule PO Anomaly -->
+            <div class="wf-showcase-card">
+              <div class="wf-card-top">
+                <span class="agent-type-badge badge-joule">SAP Enterprise</span>
+                <span class="wf-node-count-badge">7 Nodes</span>
+              </div>
+              <h4 class="wf-card-title">SAP Joule Studio S/4HANA PO Anomaly & Approval Agent</h4>
+              <p class="wf-card-desc">
+                Listens to SAP Event Mesh PO events, runs Joule AI skill to check vendor/unit price deviations, queries S/4HANA BAPI, routes Teams Adaptive Cards for VP sign-off, and releases PO.
+              </p>
+              <div class="wf-card-stack">
+                <span class="wf-stack-pill">SAP Joule Studio</span>
+                <span class="wf-stack-pill">S/4HANA</span>
+                <span class="wf-stack-pill">BAPI</span>
+                <span class="wf-stack-pill">Teams</span>
+              </div>
+              <button class="btn-load-workflow" onclick="loadWorkflowIntoStudio('joule_po')">
+                <i class="fas fa-play-circle"></i> Load into Studio Canvas
+              </button>
+            </div>
+
+            <!-- 04. Sales Assistant -->
+            <div class="wf-showcase-card">
+              <div class="wf-card-top">
+                <span class="agent-type-badge badge-n8n">Inbound Sales</span>
+                <span class="wf-node-count-badge">6 Nodes</span>
+              </div>
+              <h4 class="wf-card-title">AI Sales Assistant & Autonomous Meeting Scheduler</h4>
+              <p class="wf-card-desc">
+                Ingests website discovery inquiries, uses Claude 3.5 Sonnet to score project intent, enriches CRM contact in HubSpot, schedules Google Meet calls, and notifies team in Slack.
+              </p>
+              <div class="wf-card-stack">
+                <span class="wf-stack-pill">Claude 3.5 Sonnet</span>
+                <span class="wf-stack-pill">HubSpot</span>
+                <span class="wf-stack-pill">Google Meet</span>
+                <span class="wf-stack-pill">Slack</span>
+              </div>
+              <button class="btn-load-workflow" onclick="loadWorkflowIntoStudio('sales_assistant')">
+                <i class="fas fa-play-circle"></i> Load into Studio Canvas
+              </button>
+            </div>
+
+            <!-- 05. Support Sentiment -->
+            <div class="wf-showcase-card">
+              <div class="wf-card-top">
+                <span class="agent-type-badge badge-n8n">Sentiment AI</span>
+                <span class="wf-node-count-badge">7 Nodes</span>
+              </div>
+              <h4 class="wf-card-title">Customer Support Sentiment Triage & Auto-Recovery</h4>
+              <p class="wf-card-desc">
+                Intercepts Zendesk tickets, computes sentiment & frustration scores, queries ChromaDB vector base for troubleshooting, and drafts empathetic resolutions in sub-3 seconds.
+              </p>
+              <div class="wf-card-stack">
+                <span class="wf-stack-pill">Zendesk</span>
+                <span class="wf-stack-pill">ChromaDB</span>
+                <span class="wf-stack-pill">GPT-4o Mini</span>
+                <span class="wf-stack-pill">Slack</span>
+              </div>
+              <button class="btn-load-workflow" onclick="loadWorkflowIntoStudio('support_sentiment')">
+                <i class="fas fa-play-circle"></i> Load into Studio Canvas
+              </button>
+            </div>
+
+            <!-- 06. BRD Generator -->
+            <div class="wf-showcase-card">
+              <div class="wf-card-top">
+                <span class="agent-type-badge badge-flagship">Enterprise BA</span>
+                <span class="wf-node-count-badge">6 Nodes</span>
+              </div>
+              <h4 class="wf-card-title">Automated Technical Proposal & BRD/SRS Document Spec</h4>
+              <p class="wf-card-desc">
+                Converts unstructured discovery transcripts into structured User Stories, Functional Acceptance Criteria, Risk Matrices, and formatted Google Docs / PDF specification deliverables.
+              </p>
+              <div class="wf-card-stack">
+                <span class="wf-stack-pill">GPT-4</span>
+                <span class="wf-stack-pill">Google Docs API</span>
+                <span class="wf-stack-pill">PDF Engine</span>
+                <span class="wf-stack-pill">BRD/SRS</span>
+              </div>
+              <button class="btn-load-workflow" onclick="loadWorkflowIntoStudio('brd_generator')">
+                <i class="fas fa-play-circle"></i> Load into Studio Canvas
+              </button>
+            </div>
+
+            <!-- 07. Timesheet Audit -->
+            <div class="wf-showcase-card">
+              <div class="wf-card-top">
+                <span class="agent-type-badge badge-flagship">Operations</span>
+                <span class="wf-node-count-badge">6 Nodes</span>
+              </div>
+              <h4 class="wf-card-title">Enterprise Timesheet & Payroll Compliance Audit Flow</h4>
+              <p class="wf-card-desc">
+                Scheduled Friday cron trigger reconciles consultant Jira / ClickUp logged hours against sprint milestones, flags discrepancies, logs to Sheets, and dispatches 1-click reminders.
+              </p>
+              <div class="wf-card-stack">
+                <span class="wf-stack-pill">Cron</span>
+                <span class="wf-stack-pill">Jira API</span>
+                <span class="wf-stack-pill">ClickUp</span>
+                <span class="wf-stack-pill">Google Sheets</span>
+              </div>
+              <button class="btn-load-workflow" onclick="loadWorkflowIntoStudio('timesheet_audit')">
+                <i class="fas fa-play-circle"></i> Load into Studio Canvas
+              </button>
+            </div>
+
+            <!-- 08. ERP Compliance RAG -->
+            <div class="wf-showcase-card">
+              <div class="wf-card-top">
+                <span class="agent-type-badge badge-joule">RAG & ERP</span>
+                <span class="wf-node-count-badge">6 Nodes</span>
+              </div>
+              <h4 class="wf-card-title">ERP Multi-Module Compliance & Tax RAG Agent</h4>
+              <p class="wf-card-desc">
+                Vector search across 500+ pages of enterprise blueprints (Morocco PCM, PNG tax, Kenya trade), validating T-Codes and returning grounded tax & accounting ledger advice.
+              </p>
+              <div class="wf-card-stack">
+                <span class="wf-stack-pill">ChromaDB</span>
+                <span class="wf-stack-pill">OpenAI Embeddings</span>
+                <span class="wf-stack-pill">S/4HANA</span>
+                <span class="wf-stack-pill">Copilot Studio</span>
+              </div>
+              <button class="btn-load-workflow" onclick="loadWorkflowIntoStudio('erp_rag')">
+                <i class="fas fa-play-circle"></i> Load into Studio Canvas
+              </button>
+            </div>
+
+            <!-- 09. Power Automate Invoice -->
+            <div class="wf-showcase-card">
+              <div class="wf-card-top">
+                <span class="agent-type-badge badge-joule">Power Platform</span>
+                <span class="wf-node-count-badge">6 Nodes</span>
+              </div>
+              <h4 class="wf-card-title">Microsoft Power Automate Invoice OCR & ERP Reconciliation</h4>
+              <p class="wf-card-desc">
+                Outlook trigger ingests vendor invoices, AI Builder OCR extracts key-value pairs, SharePoint archives document, Teams Adaptive Card captures manager approval, and SAP BAPI commits entry.
+              </p>
+              <div class="wf-card-stack">
+                <span class="wf-stack-pill">Power Automate</span>
+                <span class="wf-stack-pill">AI Builder</span>
+                <span class="wf-stack-pill">SharePoint</span>
+                <span class="wf-stack-pill">SAP S/4HANA</span>
+              </div>
+              <button class="btn-load-workflow" onclick="loadWorkflowIntoStudio('pa_invoice')">
+                <i class="fas fa-play-circle"></i> Load into Studio Canvas
+              </button>
+            </div>
+
+            <!-- 10. Financial Arbitrage -->
+            <div class="wf-showcase-card">
+              <div class="wf-card-top">
+                <span class="agent-type-badge badge-n8n">FinTech & Trading</span>
+                <span class="wf-node-count-badge">6 Nodes</span>
+              </div>
+              <h4 class="wf-card-title">Financial Currency & Commodity Arbitrage Monitoring Bot</h4>
+              <p class="wf-card-desc">
+                Sub-second FastAPI price stream ingest, spread calculator across global liquidity pools, Postgres tick ledger, and automated high-frequency Telegram trade signals on spreads > 1.8%.
+              </p>
+              <div class="wf-card-stack">
+                <span class="wf-stack-pill">FastAPI</span>
+                <span class="wf-stack-pill">n8n</span>
+                <span class="wf-stack-pill">PostgreSQL</span>
+                <span class="wf-stack-pill">Telegram API</span>
+              </div>
+              <button class="btn-load-workflow" onclick="loadWorkflowIntoStudio('arbitrage_bot')">
+                <i class="fas fa-play-circle"></i> Load into Studio Canvas
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION: 7 PRODUCTION AI AGENTS ==================== -->
+    <section class="section" id="agents">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Flagship Deployments</span>
+          <h2 class="section-title">7 Production <span class="text-gradient-cyan">AI Agents</span></h2>
+          <p class="section-subtitle">
+            Engineered, deployed, and operating live on Deepesh's self-hosted infrastructure and enterprise client environments.
+          </p>
+        </div>
+
+        <div class="agent-filter-tabs">
+          <button class="tab-btn active agent-tab-btn" data-filter="all">All Agents (7)</button>
+          <button class="tab-btn agent-tab-btn" data-filter="flagship">Flagship Agents</button>
+          <button class="tab-btn agent-tab-btn" data-filter="joule">SAP Joule Agents</button>
+          <button class="tab-btn agent-tab-btn" data-filter="n8n">n8n Multi-Agent</button>
+        </div>
+
+        <div class="agents-grid" id="agents-grid-container">
+          <!-- Populated by scripts/catalog.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION: SAP JOULE 63 AGENT MATRIX ==================== -->
+    <section class="section" id="joule-catalog">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Enterprise SAP Joule Catalog</span>
+          <h2 class="section-title">SAP Joule Studio <span class="text-gradient-joule">63 Agents Matrix</span></h2>
+          <p class="section-subtitle">
+            Deepesh has mapped out SAP's 63 ready-to-use Joule agents by business area, GA / Beta / Early-Access status, and integration event triggers.
+          </p>
+        </div>
+
+        <div class="catalog-search-bar">
+          <div class="search-input-wrap">
+            <i class="fas fa-search"></i>
+            <input type="text" id="catalog-search-input" class="search-input" placeholder="Search by agent name, system (S/4HANA, Ariba), or keyword...">
+          </div>
+          <select id="catalog-domain-filter" class="sim-select" style="min-width: 180px;">
+            <option value="all">All ERP Domains</option>
+            <option value="Procurement">Procurement</option>
+            <option value="Finance">Finance</option>
+            <option value="HRMS">HRMS / SuccessFactors</option>
+            <option value="Supply Chain">Supply Chain</option>
+            <option value="IT / Admin">IT & Admin</option>
+          </select>
+        </div>
+
+        <div class="catalog-matrix-container">
+          <div style="overflow-x: auto;">
+            <table class="catalog-table">
+              <thead>
+                <tr>
+                  <th>Agent ID</th>
+                  <th>Agent Name & Description</th>
+                  <th>ERP Domain</th>
+                  <th>Core System</th>
+                  <th>Release Status</th>
+                  <th>Trigger Mode</th>
+                </tr>
+              </thead>
+              <tbody id="catalog-table-body">
+                <!-- Populated dynamically by scripts/catalog.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; text-align: center;">
+          <p style="font-size: 0.85rem; color: var(--text-muted);">
+            Need access to the complete catalog spreadsheet of all 63 mapped SAP AI Agents? 
+            <a href="#contact" style="color: var(--accent-joule); text-decoration: underline; font-weight: 600;">Request full matrix via direct contact</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION: WORK EXPERIENCE ==================== -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Career Journey</span>
+          <h2 class="section-title">Professional <span class="text-gradient-purple">Experience</span></h2>
+          <p class="section-subtitle">
+            From ERP Functional Consulting to Autonomous AI Agent Engineering.
+          </p>
+        </div>
+
+        <div class="timeline-container">
+          <div class="timeline-line"></div>
+
+          <!-- Role 1: Tayana Solutions -->
+          <div class="timeline-item">
+            <div class="timeline-node-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">AI Automation Engineer</h3>
+                  <div class="timeline-company">Tayana Solutions • Atlanta, Georgia (Remote / Greater Hyderabad)</div>
+                </div>
+                <span class="timeline-date">June 2026 - Present</span>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+                Designing and deploying autonomous AI automations that eliminate repetitive business labor for global clients.
+              </p>
+              <ul class="timeline-points">
+                <li>Engineered production n8n workflows integrating webhooks, vector data stores, AI agents, and multi-channel auto-reply flows.</li>
+                <li>Architected AI agents with <b>SAP Joule Studio</b> for enterprise ERP and business-process automation.</li>
+                <li>Built process automation pipelines and custom apps leveraging <b>Microsoft Power Platform</b> (Power Automate, AI Builder, Copilot Studio).</li>
+                <li>Delivered hands-on AI and automation training programs for enterprise teams and professionals.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 2: Hidden Brains InfoTech (2 yrs 9 mos) -->
+          <div class="timeline-item">
+            <div class="timeline-node-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Functional Business Analyst</h3>
+                  <div class="timeline-company">Hidden Brains InfoTech • Ahmedabad, Gujarat, India</div>
+                </div>
+                <span class="timeline-date">Oct 2023 - June 2026 (2 yrs 9 mos)</span>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+                Led ERP implementations and compliance-driven enterprise initiatives, aligning complex business requirements with technical delivery.
+              </p>
+              <ul class="timeline-points">
+                <li>Collaborated with international stakeholders to gather requirements, analyze workflows, and eliminate critical system gaps.</li>
+                <li>Authored comprehensive BRD, SRS, and RFP specifications to guide engineering delivery.</li>
+                <li>Built structured enterprise knowledge bases for ERP modules: <b>HRMS, Recruitment, Performance Management, Contract Management, Procurement, and Finance</b>.</li>
+                <li>Championed regulatory compliance implementations across <b>Morocco (Accounting Plan PCM), Papua New Guinea (Tax Systems), and Kenya (Trade Workflows)</b>.</li>
+                <li>Designed process flow diagrams, system state charts, and functional wireframes for complex enterprise scenarios.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Role 3: Hidden Brains BA (Earlier) -->
+          <div class="timeline-item">
+            <div class="timeline-node-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Business Analyst</h3>
+                  <div class="timeline-company">Hidden Brains InfoTech • Ahmedabad, India</div>
+                </div>
+                <span class="timeline-date">Jan 2023 - Sept 2023 (9 mos)</span>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">
+                Conducted pre-sales technical analysis, requirements gathering, and initial solution scoping for enterprise software initiatives.
+              </p>
+            </div>
+          </div>
+
+          <!-- Role 4: Test Yantra QA -->
+          <div class="timeline-item">
+            <div class="timeline-node-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Quality Analyst</h3>
+                  <div class="timeline-company">Test Yantra • Bengaluru, Karnataka, India</div>
+                </div>
+                <span class="timeline-date">July 2022 - Dec 2022 (6 mos)</span>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">
+                Performed test automation, regression testing, QA validation, and UAT readiness checks for mission-critical client applications.
+              </p>
+            </div>
+          </div>
+
+          <!-- Role 5: Education -->
+          <div class="timeline-item">
+            <div class="timeline-node-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div>
+                  <h3 class="timeline-role">Bachelor of Technology (B.Tech) - Computer Science</h3>
+                  <div class="timeline-company">Rajiv Gandhi Proudyogiki Vishwavidyalaya (RGPV)</div>
+                </div>
+                <span class="timeline-date">July 2019 - June 2023</span>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-muted);">
+                Comprehensive engineering foundation in Algorithms, Data Structures, Distributed Computing, Database Systems, and Cloud Infrastructure.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION: SKILLS MATRIX ==================== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Core Capabilities</span>
+          <h2 class="section-title">Technical <span class="text-gradient-cyan">Skill Stack</span></h2>
+          <p class="section-subtitle">
+            Bridging enterprise ERP business logic with bleeding-edge autonomous AI orchestrations.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Skill Card 1 -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">
+                <i class="fas fa-brain"></i>
+              </div>
+              <div>
+                <h3 class="category-title">AI & Agent Orchestration</h3>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Autonomous Pipelines</span>
+              </div>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-bar-wrap">
+                <div class="skill-info"><span class="skill-name">SAP Joule Studio</span><span class="skill-pct">96%</span></div>
+                <div class="skill-progress-track"><div class="skill-progress-fill" style="width: 96%; background: linear-gradient(90deg, #f59e0b, #fbbf24);"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-info"><span class="skill-name">n8n Multi-Agent Clusters</span><span class="skill-pct">98%</span></div>
+                <div class="skill-progress-track"><div class="skill-progress-fill" style="width: 98%; background: linear-gradient(90deg, #ff6d5a, #f43f5e);"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-info"><span class="skill-name">OpenAI GPT-4 / Prompt Eng</span><span class="skill-pct">95%</span></div>
+                <div class="skill-progress-track"><div class="skill-progress-fill" style="width: 95%;"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-info"><span class="skill-name">RAG & Vector Stores</span><span class="skill-pct">90%</span></div>
+                <div class="skill-progress-track"><div class="skill-progress-fill" style="width: 90%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Card 2 -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon" style="background: rgba(0, 120, 212, 0.15); color: #0078d4;">
+                <i class="fab fa-microsoft"></i>
+              </div>
+              <div>
+                <h3 class="category-title">Low-Code & Power Platform</h3>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Microsoft Ecosystem</span>
+              </div>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-bar-wrap">
+                <div class="skill-info"><span class="skill-name">Microsoft Power Automate</span><span class="skill-pct">94%</span></div>
+                <div class="skill-progress-track"><div class="skill-progress-fill" style="width: 94%; background: linear-gradient(90deg, #0078d4, #38bdf8);"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-info"><span class="skill-name">Microsoft Copilot Studio</span><span class="skill-pct">92%</span></div>
+                <div class="skill-progress-track"><div class="skill-progress-fill" style="width: 92%;"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-info"><span class="skill-name">AI Builder</span><span class="skill-pct">90%</span></div>
+                <div class="skill-progress-track"><div class="skill-progress-fill" style="width: 90%;"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-info"><span class="skill-name">Power Apps Solutions</span><span class="skill-pct">88%</span></div>
+                <div class="skill-progress-track"><div class="skill-progress-fill" style="width: 88%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Card 3 -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon" style="background: rgba(16, 185, 129, 0.15); color: #10b981;">
+                <i class="fas fa-sitemap"></i>
+              </div>
+              <div>
+                <h3 class="category-title">ERP & Functional Analysis</h3>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Business Architecture</span>
+              </div>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-bar-wrap">
+                <div class="skill-info"><span class="skill-name">BRD, SRS & RFP Docs</span><span class="skill-pct">98%</span></div>
+                <div class="skill-progress-track"><div class="skill-progress-fill" style="width: 98%; background: linear-gradient(90deg, #10b981, #34d399);"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-info"><span class="skill-name">Process Flow & Systems Diagrams</span><span class="skill-pct">96%</span></div>
+                <div class="skill-progress-track"><div class="skill-progress-fill" style="width: 96%;"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-info"><span class="skill-name">HRMS, Procurement & Finance</span><span class="skill-pct">94%</span></div>
+                <div class="skill-progress-track"><div class="skill-progress-fill" style="width: 94%;"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-info"><span class="skill-name">International Compliance (PCM)</span><span class="skill-pct">92%</span></div>
+                <div class="skill-progress-track"><div class="skill-progress-fill" style="width: 92%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Card 4 -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon" style="background: rgba(139, 92, 246, 0.15); color: #a855f7;">
+                <i class="fas fa-plug"></i>
+              </div>
+              <div>
+                <h3 class="category-title">Integrations & APIs</h3>
+                <span style="font-size: 0.75rem; color: var(--text-muted);">Connectivity Hub</span>
+              </div>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-bar-wrap">
+                <div class="skill-info"><span class="skill-name">REST APIs & Webhooks</span><span class="skill-pct">96%</span></div>
+                <div class="skill-progress-track"><div class="skill-progress-fill" style="width: 96%; background: linear-gradient(90deg, #8b5cf6, #c084fc);"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-info"><span class="skill-name">Apify Scraping Actors</span><span class="skill-pct">92%</span></div>
+                <div class="skill-progress-track"><div class="skill-progress-fill" style="width: 92%;"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-info"><span class="skill-name">Airtable, Sheets & Telegram Bots</span><span class="skill-pct">95%</span></div>
+                <div class="skill-progress-track"><div class="skill-progress-fill" style="width: 95%;"></div></div>
+              </div>
+              <div class="skill-bar-wrap">
+                <div class="skill-info"><span class="skill-name">UAT & QA Testing Matrix</span><span class="skill-pct">94%</span></div>
+                <div class="skill-progress-track"><div class="skill-progress-fill" style="width: 94%;"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION: CERTIFICATIONS ==================== -->
+    <section class="section" id="certifications">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Credentials</span>
+          <h2 class="section-title">Verified <span class="text-gradient-cyan">Certifications</span></h2>
+          <p class="section-subtitle">
+            Industry-recognized validations in AI agents, prompt engineering, and low-code architecture. Click any credential below to verify directly on the official issuer portal.
+          </p>
+          <div style="margin-top: 1rem;">
+            <a href="https://www.linkedin.com/in/deepesh213/details/certifications/" target="_blank" rel="noopener noreferrer" class="btn-resume-cta" style="display: inline-flex; font-size: 0.8rem; padding: 0.45rem 1.1rem; gap: 0.5rem; border-radius: var(--radius-full); background: rgba(0, 119, 181, 0.15); border: 1px solid rgba(0, 119, 181, 0.4); color: #38bdf8; text-decoration: none;">
+              <i class="fab fa-linkedin"></i>
+              <span>View Full Certification Ledger on LinkedIn</span>
+              <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="certs-grid">
+          <a href="https://learning.sap.com/learning-journeys/introducing-joule-studio" target="_blank" rel="noopener noreferrer" class="cert-card" title="Verify Introducing Joule Studio on SAP Learning">
+            <div class="cert-badge-icon" style="color: #f59e0b; border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1);">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <h4 class="cert-name">Introducing Joule Studio</h4>
+            <span class="cert-issuer">SAP Learning • Official Accreditation</span>
+            <div class="cert-verify-link">
+              <span>Verify on SAP Learning</span>
+              <i class="fas fa-external-link-alt"></i>
+            </div>
+          </a>
+
+          <a href="https://learning.sap.com/learning-journeys/introducing-joule" target="_blank" rel="noopener noreferrer" class="cert-card" title="Verify Introducing Joule on SAP Learning">
+            <div class="cert-badge-icon" style="color: #fbbf24; border-color: rgba(251, 191, 36, 0.4); background: rgba(251, 191, 36, 0.1);">
+              <i class="fas fa-award"></i>
+            </div>
+            <h4 class="cert-name">Introducing Joule - Course Completion</h4>
+            <span class="cert-issuer">SAP Learning • Enterprise AI</span>
+            <div class="cert-verify-link">
+              <span>Verify on SAP Learning</span>
+              <i class="fas fa-external-link-alt"></i>
+            </div>
+          </a>
+
+          <a href="https://n8n.io/creators/deepeshitis/" target="_blank" rel="noopener noreferrer" class="cert-card" title="Verify n8n QS101 on n8n Creator Profile">
+            <div class="cert-badge-icon" style="color: #ff6d5a; border-color: rgba(255, 109, 90, 0.4); background: rgba(255, 109, 90, 0.1);">
+              <i class="fas fa-network-wired"></i>
+            </div>
+            <h4 class="cert-name">n8n Quickstart (QS101)</h4>
+            <span class="cert-issuer">n8n Academy • Workflow Automation</span>
+            <div class="cert-verify-link">
+              <span>Verify on n8n Profile</span>
+              <i class="fas fa-external-link-alt"></i>
+            </div>
+          </a>
+
+          <a href="https://academy.n8n.io/" target="_blank" rel="noopener noreferrer" class="cert-card" title="Verify n8n103 on n8n Academy">
+            <div class="cert-badge-icon" style="color: #ec4899; border-color: rgba(236, 72, 153, 0.4); background: rgba(236, 72, 153, 0.1);">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h4 class="cert-name">n8n103 In Practice: AI, Testing & Best Practices</h4>
+            <span class="cert-issuer">n8n Academy • Advanced Multi-Agent</span>
+            <div class="cert-verify-link">
+              <span>Verify on n8n Academy</span>
+              <i class="fas fa-external-link-alt"></i>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/deepesh213/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert-card" title="Verify Prompt Engineering Credential on LinkedIn">
+            <div class="cert-badge-icon" style="color: #10b981; border-color: rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.1);">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h4 class="cert-name">Prompt Engineering & Programming with OpenAI</h4>
+            <span class="cert-issuer">OpenAI / Specialized Course</span>
+            <div class="cert-verify-link">
+              <span>Verify on LinkedIn</span>
+              <i class="fas fa-external-link-alt"></i>
+            </div>
+          </a>
+
+          <a href="https://www.cloudskillsboost.google/" target="_blank" rel="noopener noreferrer" class="cert-card" title="Verify Google Cloud Facilitator on Cloud Skills Boost">
+            <div class="cert-badge-icon" style="color: #4facfe; border-color: rgba(79, 172, 254, 0.4); background: rgba(79, 172, 254, 0.1);">
+              <i class="fab fa-google"></i>
+            </div>
+            <h4 class="cert-name">Google Cloud Ready Facilitator</h4>
+            <span class="cert-issuer">Google Cloud Facilitator Program</span>
+            <div class="cert-verify-link">
+              <span>Verify on Cloud Skills Boost</span>
+              <i class="fas fa-external-link-alt"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION: CONTACT & CONNECT ==================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Initiate Contact</span>
+          <h2 class="section-title">Let's Build <span class="text-gradient-cyan">Your AI Automations</span></h2>
+          <p class="section-subtitle">
+            Ready to deploy autonomous AI agents or upgrade enterprise ERP workflows? Get in touch directly.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left Info Panel -->
+          <div class="contact-info-panel">
+            <div class="contact-channel">
+              <div class="contact-icon-box">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-meta">
+                <div class="contact-meta-title">Email Direct</div>
+                <div class="contact-meta-val">jaindeepesh213@gmail.com</div>
+              </div>
+              <button class="copy-btn" data-copy="jaindeepesh213@gmail.com" title="Copy email">
+                <i class="far fa-copy"></i>
+              </button>
+            </div>
+
+            <div class="contact-channel">
+              <div class="contact-icon-box" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="contact-meta">
+                <div class="contact-meta-title">Phone / WhatsApp</div>
+                <div class="contact-meta-val">+91 8305676129</div>
+              </div>
+              <button class="copy-btn" data-copy="8305676129" title="Copy phone">
+                <i class="far fa-copy"></i>
+              </button>
+            </div>
+
+            <div class="contact-channel">
+              <div class="contact-icon-box" style="background: rgba(0, 119, 181, 0.1); color: #0077b5;">
+                <i class="fab fa-linkedin-in"></i>
+              </div>
+              <div class="contact-meta">
+                <div class="contact-meta-title">LinkedIn Profile</div>
+                <div class="contact-meta-val">linkedin.com/in/deepesh213</div>
+              </div>
+              <a href="https://www.linkedin.com/in/deepesh213" target="_blank" rel="noopener noreferrer" class="copy-btn" title="Open LinkedIn">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+
+            <div class="contact-channel">
+              <div class="contact-icon-box" style="background: rgba(255, 109, 90, 0.1); color: #ff6d5a;">
+                <i class="fas fa-share-nodes"></i>
+              </div>
+              <div class="contact-meta">
+                <div class="contact-meta-title">n8n Creator Showcase</div>
+                <div class="contact-meta-val">n8n.io/creators/deepeshitis</div>
+              </div>
+              <a href="https://n8n.io/creators/deepeshitis/" target="_blank" rel="noopener noreferrer" class="copy-btn" title="Open Creator Profile">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+
+            <div class="contact-channel">
+              <div class="contact-icon-box" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-meta">
+                <div class="contact-meta-title">Base Location</div>
+                <div class="contact-meta-val">Greater Hyderabad Area, India</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Interactive Form Terminal -->
+          <div class="contact-terminal">
+            <div class="terminal-header">
+              <i class="fas fa-terminal" style="color: var(--accent-cyan);"></i>
+              <span>DEEPESH_AGENT_TRANSMISSION_PROTOCOL.sh</span>
+            </div>
+
+            <form class="terminal-form" id="contact-terminal-form">
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Client / Company Name *</label>
+                <input type="text" id="contact-name" class="form-input" placeholder="e.g. Acme Corp / Alex Smith" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Corporate Email Address *</label>
+                <input type="email" id="contact-email" class="form-input" placeholder="name@company.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="form-label">Automation Project Scope or Role Details *</label>
+                <textarea id="contact-message" class="form-textarea" placeholder="Describe the workflow you want to automate, SAP Joule agent needs, or team requirements..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                <i class="fas fa-paper-plane"></i> Dispatch Transmission to Deepesh
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+      <div class="container footer-content">
+        <div class="footer-copy">
+          © 2026 Deepesh Kumar Jain. Engineered with 3D Three.js, SAP Joule Studio & n8n Architectures.
+        </div>
+
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/deepesh213" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://n8n.io/creators/deepeshitis/" target="_blank" rel="noopener noreferrer" class="social-link" title="n8n Creator">
+            <i class="fas fa-network-wired"></i>
+          </a>
+          <a href="https://sunoduniya.vercel.app/" target="_blank" rel="noopener noreferrer" class="social-link" title="SunoDuniya">
+            <i class="fas fa-globe"></i>
+          </a>
+          <a href="mailto:jaindeepesh213@gmail.com" class="social-link" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Agent Architecture Modal Overlay -->
+  <div class="modal-overlay" id="agent-modal-overlay">
+    <div class="modal-box">
+      <button class="modal-close-btn" id="agent-modal-close" aria-label="Close modal">
+        <i class="fas fa-times"></i>
+      </button>
+      <div id="agent-modal-content">
+        <!-- Injected via scripts/catalog.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="scripts/logos.js"></script>
+  <script type="module" src="scripts/three-scene.js"></script>
+  <script src="scripts/simulator.js"></script>
+  <script src="scripts/catalog.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
