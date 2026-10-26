@@ -14,6 +14,7 @@ class PortfolioController {
     this.init3DModeToggle();
     this.initClipboardAndContact();
     this.initNodeHoverListener();
+    this.initArchitectureFlow();
   }
 
   // Web Audio API Synthesizer (No external sound files required)
@@ -293,6 +294,43 @@ class PortfolioController {
         contactForm.reset();
       });
     }
+  }
+
+  // Interactive Architecture Step Selector (Stages 01 - 05)
+  initArchitectureFlow() {
+    const flowSteps = document.querySelectorAll('.arch-flow-diagram .flow-step');
+    if (!flowSteps || flowSteps.length === 0) return;
+
+    const stepTelemetry = [
+      { num: '01', title: 'Trigger & Ingestion', desc: 'Active: Ingesting webhooks, Apify scrapers, and SAP Event Mesh streams.' },
+      { num: '02', title: 'Data Normalization', desc: 'Active: Running schema validation, deduplication, and payload mapping.' },
+      { num: '03', title: 'Cognitive AI Agent', desc: 'Active: GPT-4o / Claude reasoning, vector memory RAG, and requirement scoring.' },
+      { num: '04', title: 'Human-in-the-Loop', desc: 'Active: Teams & Slack adaptive review cards with 1-click approvals.' },
+      { num: '05', title: 'ERP Commit & Alert', desc: 'Active: Committing SAP S/4HANA BAPIs and persisting PostgreSQL/Airtable audit logs.' }
+    ];
+
+    flowSteps.forEach((step, idx) => {
+      step.setAttribute('role', 'button');
+      step.setAttribute('tabindex', '0');
+      step.setAttribute('title', `Click to select Stage 0${idx + 1}`);
+
+      const selectStep = () => {
+        flowSteps.forEach(s => s.classList.remove('active'));
+        step.classList.add('active');
+
+        if (this.playSound) this.playSound('click');
+        const info = stepTelemetry[idx] || { num: `0${idx + 1}`, title: 'Pipeline Stage', desc: 'Step selected.' };
+        this.showToast(`⚡ Stage ${info.num}: ${info.title} — ${info.desc}`);
+      };
+
+      step.addEventListener('click', selectStep);
+      step.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          selectStep();
+        }
+      });
+    });
   }
 
   showToast(message) {
